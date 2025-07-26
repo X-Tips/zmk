@@ -92,95 +92,77 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-            // |  +  |  7  |  8  |  9  |   Q   |   W   |   E   |   R   |   T   |  VolU |  Play |   Y   |   U   |   I   |   O   |   P   |
-            // |  -  |  4  |  5  |  6  |   A   |   S   |   D   |   F   |   G   |  VolD |  Next |   H   |   J   |   K   |   L   |  Ent  |
-            // |  *  |  1  |  2  |  3  |   Z   |   X   |   C   |   V   |   B   |   ^V  |   ^Z  |   N   |   M   |  5 ,  |  6 .  |  BS   |
-            // |  /  |  .  |  0  | Ent | LWin  |  LAlt | LCtrl | MO(1) | LSht  |   ^C  |   ^X  | SPACE | MO(2) | 3,ESC | 3,TAB |  Del  | 
+            // |   Q   |   W   |   E   |   R   |   T   |    ----   |   Y   |   U   |   I    |   O    |   P   |
+            // |   A   |   S   |   D   |   F   |   G   |    ----   |   H   |   J   |   K    |   L    |  Ent  |
+            // | LG,Z  |  LA,X | LC,C  | LS,V  | LT1,B | LT3,SPACE | LT2,N | RS,M  | RS,TAb | RA,ESC | RG,BS | 
             bindings = <
-            &kp KP_PLUS      &kp N7     &kp N8    &kp N9       &kp Q        &kp W        &kp E         &kp R        &kp T     &none      &none       &kp Y      &kp U   &kp I          &kp O       &kp P    
-            &kp KP_MINUS     &kp N4     &kp N5    &kp N6       &kp A        &kp S        &kp D         &kp F        &kp G     &none      &none       &kp H      &kp J   &kp K          &kp L       &kp ENTER
-            &kp KP_MULTIPLY  &kp N1     &kp N2    &kp N3       &kp Z        &kp X        &kp C         &kp V        &kp B     &kp LC(V)  &kp LC(Z)   &kp N      &kp M   &xlt 5 COMMA   &xlt 6 DOT   &kp BSPC 
-            &kp KP_SLASH     &kp KP_DOT &kp N0    &kp KP_ENTER &mt LWIN DEL &mt LALT ESC &mt LCTRL TAB &xlt 1 SPACE &kp LSHFT &kp LC(C)  &kp LC(X)   &kp SPACE  &xmo 2  &xlt 3 TAB     &xlt 4 ESC   &kp DEL  
+            &xlt 4 Q     &kp W        &kp E         &kp R        &kp T      &none         &kp Y      &kp U         &kp I          &kp O          &kp P    
+            &kp A        &kp S        &kp D         &kp F        &kp G      &none         &kp H      &kp J         &kp K          &kp L          &kp ENTER
+            &mt LWIN Z   &mt LALT X   &mt LCTRL C   &mt LSHFT V  &xlt 1 B   &xlt 3 SPACE  &xlt 2 N   &mt RSHFT(V)  &mt RCTRL TAB  &mt RALT ESC   &mt RWIN BSPC
             >;
 		};
 
 		fn1_layer {
-            // | --- | --- | --- | --- |   7   |   8   |   9   |   .   |   +   |  ---  |  ---  |   *   |   $   |   :   |   |   |   `   |
-            // | --- | --- | --- | --- |   4   |   5   |   6   |   0   |   -   |  ---  |  ---  |   /   |   #   |   {   |   }   |   ;   |
-            // | --- | --- | --- | --- |   1   |   2   |   3   |  BS   |   =   |  Del  |   ^Y  |   \   |   &   |   <   |   >   |   '   |
-            // | --- | --- | --- | --- | LWin  |  LAlt | LCtrl | TO(0) | LSht  |  Esc  |  Tab  |  CAPS | #Spc  |  ^!+  |  ^!+  |  ^!+  |
             bindings = <
-            &none   &none   &none   &none   &kp N7    &kp N8    &kp N9    &kp KP_DOT &kp KP_PLUS         &none         &none          &kp KP_MULTIPLY  &kp DLLR      &kp COLON      &kp PIPE       &kp GRAVE  
-            &none   &none   &none   &none   &kp N4    &kp N5    &kp N6    &kp N0     &kp KP_MINUS        &none         &none          &kp KP_SLASH     &kp HASH      &kp LBRC       &kp RBRC       &kp SEMI   
-            &none   &none   &none   &none   &kp N1    &kp N2    &kp N3    &kp BSPC   &kp EQUAL           &kp LG(MINUS) &kp LG(EQUAL)  &kp BSLH         &kp AMPS      &kp LT         &kp GT         &kp SQT  
-            &none   &none   &none   &none   &kp LWIN  &kp LALT  &kp LCTRL &to 0      &mt LSHFT KP_ENTER  &kp LG(ESC)   &kp LG(ESC)    &kp RA(RG(N6))   &kp LG(SPACE) &kp RA(RG(N8)) &kp RA(RG(N9)) &kp RA(RG(N0))    
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none      
              >;
 		};
 
 		fn2_layer {
-            // | --- | --- | --- | --- |   ~   |   %   |   _   |   ^   |   +   |  ---  |  ---  |   *   |  Home |   Up  |  End  | PgUp  |
-            // | --- | --- | --- | --- |   @   |   "   |   !   |   ?   |   -   |  ---  |  ---  |   /   |  Left |   Dn  | Right | PgDn  |
-            // | --- | --- | --- | --- |   [   |   ]   |   '   |   &   |   =   |  #Dn  |  #Up  |   \   | +Left |  +Up  |+Right | !#BS  |
-            // | --- | --- | --- | --- | LWin  |  LAlt | LCtrl | MO(8) | LSht  | #Left | #Right|  CAPS | TO(0) |  +Dn  |  ---  | !#Del |
             bindings = <
-            &none   &none   &none   &none  &kp TILDE &kp PRCNT &kp UNDER &kp CARET  &kp PLUS   &none         &none          &kp STAR              &kp HOME      &kp UP       &kp END         &kp PG_UP 
-            &none   &none   &none   &none  &kp AT    &kp DQT   &kp EXCL  &kp QMARK  &kp MINUS  &none         &none          &kp SLASH             &kp LEFT      &kp DOWN     &kp RIGHT       &kp PG_DN 
-            &none   &none   &none   &none  &kp LBKT  &kp RBKT  &kp LPAR  &kp RPAR   &kp EQUAL  &kp LC(MINUS) &kp LC(PLUS)   &kp BSLH              &kp LS(LEFT)  &kp LS(UP)   &kp LS(RIGHT)   &cut2home  
-            &none   &none   &none   &none  &kp LWIN  &kp LALT  &kp LCTRL &kp CAPS   &kp LSHFT  &kp LC(N0)    &kp LC(N0)     &kp LC(LA(LS(SLASH))) &to 0         &kp LS(DOWN) &cutline        &cut2end    
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none      
             >;
 		};
 
 		fn3_layer {
             bindings = <
-            &none   &none   &none   &none   &kp LS(LC(LA(LG(Q))))  &kp LS(LC(LA(LG(W))))  &kp LS(LC(LA(LG(E))))  &kp LS(LC(LA(LG(R))))  &kp LS(LC(LA(LG(T))))   &none         &none          &kp LS(LC(LA(LG(Y))))  &kp LS(LC(LA(LG(U))))   &mkp LCLK         &kp RS(RG(UP))     &mkp RCLK           
-            &none   &none   &none   &none   &kp LS(LC(LA(LG(A))))  &kp LS(LC(LA(LG(S))))  &kp LS(LC(LA(LG(D))))  &kp LS(LC(LA(LG(F))))  &kp LS(LC(LA(LG(G))))   &none         &none          &kp LS(LC(LA(LG(H))))  &kp LS(LC(LA(LG(J))))   &kp RS(RG(LEFT))  &kp RS(RG(DOWN))   &kp RS(RG(RIGHT))         
-            &none   &none   &none   &none   &kp LS(LC(LA(LG(Z))))  &kp LS(LC(LA(LG(X))))  &kp LS(LC(LA(LG(C))))  &kp LS(LC(LA(LG(V))))  &kp LS(LC(LA(LG(B))))   &kp LG(DOWN)  &kp LG(UP)     &kp LS(LC(LA(LG(N))))  &kp LS(LC(LA(LG(M))))   &mkp MB4          &mkp MB5           &kp PG_UP       
-            &none   &none   &none   &none   &kp LS(LC(LA(LG(N1)))) &kp LS(LC(LA(LG(N2)))) &kp LS(LC(LA(LG(N3)))) &kp LS(LC(LA(LG(N4)))) &kp LS(LC(LA(LG(N5))))  &kp LG(LEFT)  &kp LG(RIGHT)  &kp LS(LC(LA(LG(N6)))) &kp LS(LC(LA(LG(N7))))  &to 0             &mkp MB3           &kp PG_DN    
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none      
             >;
 		};
 		
 		fn4_layer {
             bindings = <
-            &none   &none   &none   &none  &kp LC(LA(LG(Q))) &kp LC(LA(LG(W))) &kp LC(LA(LG(E))) &kp LC(LA(LG(R)))  &kp LC(LA(LG(T))) &kp LC(LA(LG(HOME)))   &kp LC(LA(LG(END)))    &kp F9               &kp F10             &kp F11             &kp F12   &kp LC(LA(LG(P)))
-            &none   &none   &none   &none  &kp LC(LA(LG(A))) &kp LC(LA(LG(S))) &kp LC(LA(LG(D))) &kp LC(LA(LG(F)))  &kp LC(LA(LG(G))) &kp LC(LA(LG(PG_UP)))  &kp LC(LA(LG(PG_DN)))  &kp F5               &kp F6              &kp F7              &kp F8    &kp LC(LA(LG(ENTER)))
-            &none   &none   &none   &none  &kp LC(LA(LG(Z))) &kp LC(LA(LG(X))) &kp LC(LA(LG(C))) &kp LC(LA(LG(V)))  &kp LC(LA(LG(B))) &kp LC(LA(LG(DOWN)))   &kp LC(LA(LG(UP)))     &kp F1               &kp F2              &kp F3              &kp F4    &kp LC(LA(LG(BSPC)))
-            &none   &none   &none   &none  &kp LWIN          &kp LALT          &kp LCTRL         &kp LC(LA(LG(N4))) &kp LSHFT         &kp LC(LA(LG(LEFT)))   &kp LC(LA(LG(RIGHT)))  &kp LC(LA(LG(N6)))   &kp LC(LA(LG(N7)))  &kp LC(LA(LG(N8)))  &to 0     &xtips    
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none      
             >;
 		};
 
 		fn5_layer {
             bindings = <
-            &none   &none   &none   &none   &bt BT_SEL 1   &out OUT_BLE      &kp RA(RG(E))    &kp RA(RG(R))    &kp RA(RG(T))   &kp RA(RG(HOME))   &kp RA(RG(END))    &kp LS(LC(LA(MINUS)))   &kp LS(LC(LA(EQUAL)))   &kp INS          &kp K_CMENU             &kp KP_NLCK         
-            &none   &none   &none   &none   &bt BT_SEL 2   &out OUT_USB      &kp RA(RG(D))    &kp RA(RG(F))    &kp RA(RG(G))   &kp RA(RG(PG_UP))  &kp RA(RG(PG_DN))  &kp C_VOL_DN            &kp C_VOL_UP            &kp PAUSE_BREAK  &kp PSCRN               &kp SLCK      
-            &none   &none   &none   &none   &bt BT_CLR     &rgb_ug RGB_TOG   &kp RA(RG(C))    &kp RA(RG(V))    &kp RA(RG(B))   &kp RA(RG(DOWN))   &kp RA(RG(UP))     &kp C_PREV              &kp C_NEXT              &to 0            &kp RS(RC(X))           &kp RS(RC(O))        
-            &none   &none   &none   &none   &kp RA(RG(N1)) &kp RA(RG(N2))    &kp RA(RG(N3))   &xmo 8           &kp RA(RG(N5))  &kp RA(RG(LEFT))   &kp RA(RG(RIGHT))  &kp C_MUTE              &kp C_PP                &xmo 7           &kp LS(LC(RA(RG(N9))))  &kp LS(LC(RA(RG(N0))))      
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none      
             >;
 		};
 		
 		fn6_layer {
             bindings = <
-            &none   &none   &none   &none   &kp LS(LC(LA(Q)))  &kp LS(LC(LA(W)))  &kp LS(LC(LA(E)))  &kp LS(LC(LA(R)))  &kp LS(LC(LA(T)))   &kp LS(LC(LA(HOME)))   &kp LS(LC(LA(END)))    &kp LS(LC(LA(Y)))  &kp LS(LC(LA(U)))  &kp LS(LC(LA(I)))     &kp LS(LC(LA(O)))   &kp LS(LC(LA(P)))         
-            &none   &none   &none   &none   &kp LS(LC(LA(A)))  &kp LS(LC(LA(S)))  &kp LS(LC(LA(D)))  &kp LS(LC(LA(F)))  &kp LS(LC(LA(G)))   &kp LS(LC(LA(PG_UP)))  &kp LS(LC(LA(PG_DN)))  &kp LS(LC(LA(H)))  &kp LS(LC(LA(J)))  &kp LS(LC(LA(K)))     &kp LS(LC(LA(L)))   &kp LS(LC(LA(ENTER)))      
-            &none   &none   &none   &none   &kp LS(LC(LA(Z)))  &kp LS(LC(LA(X)))  &kp LS(LC(LA(C)))  &kp LS(LC(LA(V)))  &kp LS(LC(LA(B)))   &kp LS(LC(LA(DOWN)))   &kp LS(LC(LA(UP)))     &kp LS(LC(LA(N)))  &kp LS(LC(LA(M)))  &kp LS(LC(LA(COMMA))) &to 0               &kp LS(LC(LA(BSPC)))       
-            &none   &none   &none   &none   &kp LS(LC(LA(N1))) &kp LS(LC(LA(N2))) &kp LS(LC(LA(N3))) &kp LS(LC(LA(N4))) &kp LS(LC(LA(N5)))  &kp LS(LC(LA(LEFT)))   &kp LS(LC(LA(RIGHT)))  &kp LS(LC(LA(N6))) &kp LS(LC(LA(N7))) &kp LS(LC(LA(N8)))    &kp LS(LC(LA(N9)))  &kp LS(LC(LA(N0)))        
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none      
             >;
 		};
 		
 		fn7_layer {
             bindings = <
-            &none   &none   &none   &none   &kp LA(LG(Q))  &kp LA(LG(W))  &kp LA(LG(E))  &kp LA(LG(R))  &kp LA(LG(T))   &kp RA(RG(HOME))   &kp RA(RG(END))    &kp LA(LG(Y))  &kp LA(LG(U))  &kp LA(LG(I))     &kp LA(LG(O))         &kp LA(LG(P))         
-            &none   &none   &none   &none   &kp LA(LG(A))  &kp LA(LG(S))  &kp LA(LG(D))  &kp LA(LG(F))  &kp LA(LG(G))   &kp RA(RG(PG_UP))  &kp RA(RG(PG_DN))  &kp LA(LG(H))  &kp LA(LG(J))  &kp LA(LG(K))     &kp LA(LG(L))         &kp LA(LG(ENTER))      
-            &none   &none   &none   &none   &kp LA(LG(Z))  &kp LA(LG(X))  &kp LA(LG(C))  &kp LA(LG(V))  &kp LA(LG(B))   &kp RA(RG(DOWN))   &kp RA(RG(UP))     &kp LA(LG(N))  &kp LA(LG(M))  &kp LA(LG(COMMA)) &kp LA(LG(DOT))       &kp LA(LG(BSPC))       
-            &none   &none   &none   &none   &kp LA(LG(N1)) &kp LA(LG(N2)) &kp LA(LG(N3)) &kp LA(LG(N4)) &kp LA(LG(N5))  &kp RA(RG(LEFT))   &kp RA(RG(RIGHT))  &kp LA(LG(N6)) &bootloader    &to 0             &kp LS(LC(LA(LBRC)))  &kp LS(LC(LA(RBRC)))       
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none      
             >;
 		};
 		
 		fn8_layer {
             bindings = <
-            &none   &none   &none   &none   &kp Q     &kp W     &kp E      &kp R   &kp T     &none      &none     &kp KP_PLUS      &kp N7              &kp N8    &kp N9    &kp KP_DOT    
-            &none   &none   &none   &none   &kp A     &kp S     &kp D      &kp F   &kp G     &none      &none     &kp KP_MINUS     &kp N4              &kp N5    &kp N6    &kp N0
-            &none   &none   &none   &none   &kp Z     &kp X     &kp C      &kp V   &kp B     &kp LC(V)  &kp LC(Z) &kp KP_MULTIPLY  &kp N1              &kp N2    &kp N3    &kp BSPC 
-            &none   &none   &none   &none   &kp LWIN  &kp LALT  &kp LCTRL  &to 0   &kp LSHFT &kp LC(C)  &kp LC(X) &kp KP_SLASH     &mt LSHFT KP_ENTER  &lt 3 ESC &lt 4 TAB &kp DEL  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none  
+            &none   &none   &none   &none    &none   &none   &none   &none   &none   &none   &none      
             >;
 		};
 	};
